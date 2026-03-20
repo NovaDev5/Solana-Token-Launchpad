@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 25% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 220 25% 10%;
+    --muted: 220 14% 95%;
+    --muted-foreground: 220 10% 46%;
+    --accent: 172 66% 50%;
+    --accent-foreground: 172 66% 10%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 262 83% 58%;
+    --radius: 0.75rem;
+
+    --sol-green: 160 84% 39%;
+    --sol-purple: 262 83% 58%;
+    --sol-gradient: linear-gradient(135deg, hsl(262, 83%, 58%), hsl(172, 66%, 50%));
+    --sol-gradient-subtle: linear-gradient(135deg, hsl(262, 83%, 58%, 0.1), hsl(172, 66%, 50%, 0.1));
+    --glass-bg: 0 0% 100% / 0.7;
+    --glass-border: 0 0% 100% / 0.2;
+    --glow-primary: 0 0 40px hsl(262, 83%, 58%, 0.3);
+    --glow-accent: 0 0 40px hsl(172, 66%, 50%, 0.3);
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  .dark {
+    --background: 225 25% 6%;
+    --foreground: 210 20% 95%;
+    --card: 225 25% 9%;
+    --card-foreground: 210 20% 95%;
+    --popover: 225 25% 9%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 225 20% 14%;
+    --secondary-foreground: 210 20% 95%;
+    --muted: 225 20% 14%;
+    --muted-foreground: 220 10% 55%;
+    --accent: 172 66% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 225 15% 16%;
+    --input: 225 15% 16%;
+    --ring: 262 83% 58%;
+
+    --glass-bg: 225 25% 9% / 0.6;
+    --glass-border: 225 15% 20% / 0.5;
+    --glow-primary: 0 0 60px hsl(262, 83%, 58%, 0.2);
+    --glow-accent: 0 0 60px hsl(172, 66%, 50%, 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/70 backdrop-blur-xl border border-border/50 rounded-xl;
+  }
+  .sol-gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--sol-gradient);
+  }
+  .sol-gradient-bg {
+    background-image: var(--sol-gradient);
+  }
+  .sol-gradient-border {
+    border-image: var(--sol-gradient) 1;
+  }
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Wallet adapter overrides */
+.wallet-adapter-button {
+  font-family: var(--font-display) !important;
+  @apply rounded-lg !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/20 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/40;
+}
