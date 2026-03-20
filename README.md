@@ -12,7 +12,6 @@ A production-ready, modern Solana token launch platform with beautiful, responsi
 - **Dark/Light Theme** — Default dark, crypto-native design
 - **Mobile Responsive** — Works on all devices
 
-
 ## Tech Stack
 
 React 18, TypeScript, Vite, Tailwind CSS, Framer Motion, @solana/web3.js, @solana/spl-token, Solana wallet adapter, metaplex, raydium sdk and solana tracker api integration.
@@ -20,7 +19,16 @@ React 18, TypeScript, Vite, Tailwind CSS, Framer Motion, @solana/web3.js, @solan
 ## Environment Variables
 
 ```env
-VITE_PROJECT_ID=https://your-api.com
+VITE_PROJECT_ID=reown appkit project id
+```
+
+## Environment Variables
+
+```env
+SOLANA_MAINNET_API = helius mainnet url
+SOLANA_DEVNET_API = helius devnet url
+IPFS_PROJECT_ID - piinata api key
+IPFS_SECRET_KEY pinata secret key,
 ```
 
 ## Installation
@@ -42,5 +50,6 @@ npm run build
 - Wallet signing via reown appkit only
 
 ## Future Improvements
+
 - Token-2022 extensions
 - Analytics dashboard
